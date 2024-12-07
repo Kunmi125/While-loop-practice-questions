@@ -1,0 +1,86 @@
+How to write a while loop
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+
+# Create a program that allows the user to guess a secret number between 1 and 100
+# The program should keep prompting the user until they guess the correct number
+
+secret_num = 42
+while True:
+    user_guess = int(input("Guess a number between 1 and 100: "))
+    if user_guess == secret_num:
+        print("Congratulations! You guessed the correct number.")
+        break
+    else:
+        print("Try Again!")
+
+import random 
+
+# Generate a randpm number between 1 and 10
+secret_num = random.randint(1,10)
+attempts = 0
+max_attempts = 3
+
+print("Welcome to the Guessing Game!")
+print("I have picked a number between 1 and 10. Can you guess what it is?")
+print(f"You have {max_attempts} attempts. Good luck!")
+
+#Game Loop
+while attempts < max_attempts:
+    try:
+        # Get the player's guess
+        guess = int(input("Enter your guess: "))
+        attempts += 1
+
+        #Check the guess
+        if guess == secret_num:
+            print(f"Congratulations! You guessed it right in {attempts} attempts.")
+            break
+        elif guess < secret_num:
+            print("Too Low!")
+        else:
+            print("Too High!")
+
+        #Inform the player of remaining attempts
+        if attempts < max_attempts:
+            print(f"You have {max_attempts - attempts} attempts left.")
+        else:
+            print("Sorry, no more attempts left!")
+    except ValueError:
+        print("Please enter a valid number. ")
+
+# If the player didn't guess correctly
+if attempts == max_attempts and guess != secret_num:
+    print(f"Game Over! The correct number was {secret_num}. Better luck next time!")
+
+import random 
+
+def play_game():
+    choices = ["rock", "paper", "scissors"]
+    player1_choice = random.choice(choices)
+    player2_choice = random.choice(choices)
+
+    while True:
+        print("Player 1 chose:", player1_choice)
+        print("Player 2 chose:", player2_choice)
+
+        if player1_choice == player2_choice:
+            print("It's a tie! Lets's play again.")
+        elif (player1_choice == "rock" and player2_choice == "scissors") or \
+             (player1_choice == "paper" and player2_choice == "rock") or \
+             (player1_choice == "scissors" and player1_choice == "paper"):
+            print("player wins!")
+        else:
+            print("Player 2 wins!")
+
+
+        play_again = input("Do you want to play again? (y/n): ")
+        if play_again.lower != "y":
+            break
+
+play_game()
+        
+       
+    
